@@ -1,23 +1,20 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.fail;
 
-public class TestBase {
-
+public class AplicationManager {
    private WebDriver driver;
    private String baseUrl;
    private boolean acceptNextAlert = true;
    private StringBuffer verificationErrors = new StringBuffer();
 
-   @BeforeClass(alwaysRun = true)
-   public void setUp() throws Exception {
+   public void init() {
       driver = new FirefoxDriver();
       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
       driver.get("http://localhost/addressbook/");
@@ -61,8 +58,7 @@ public class TestBase {
       driver.findElement(By.linkText("groups")).click();
    }
 
-   @AfterClass(alwaysRun = true)
-   public void tearDown() throws Exception {
+   public void stop() {
       driver.quit();
       String verificationErrorString = verificationErrors.toString();
       if (!"".equals(verificationErrorString)) {
@@ -70,7 +66,7 @@ public class TestBase {
       }
    }
 
-   private boolean isElementPresent(By by) {
+   public boolean isElementPresent(By by) {
       try {
          driver.findElement(by);
          return true;
@@ -79,7 +75,7 @@ public class TestBase {
       }
    }
 
-   private boolean isAlertPresent() {
+   public boolean isAlertPresent() {
       try {
          driver.switchTo().alert();
          return true;
@@ -88,7 +84,7 @@ public class TestBase {
       }
    }
 
-   private String closeAlertAndGetItsText() {
+   public String closeAlertAndGetItsText() {
       try {
          Alert alert = driver.switchTo().alert();
          String alertText = alert.getText();
