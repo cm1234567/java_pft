@@ -18,7 +18,6 @@ public class ApplicationManager {
    private NavigationHelper navigationHelper;
    private GroupHelper groupHelper;
    private ContactHelper contactHelper;
-   private String baseUrl;
    private boolean acceptNextAlert = true;
    private StringBuffer verificationErrors = new StringBuffer();
    private String browser;
@@ -87,7 +86,8 @@ public class ApplicationManager {
       return navigationHelper;
    }
 
-   public ContactHelper getContactHelper() {
+   public ContactHelper contact() {
       return contactHelper;
    }
+
 }
