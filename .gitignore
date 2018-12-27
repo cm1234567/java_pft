@@ -19,3 +19,4 @@ sendbox/out/production/classes/MyFirstProgram.class
 sendbox/out/production/classes/META-INF/sendbox.main.kotlin_module
 sendbox/out/production/classes/MyFirstProgram.class
 *.exe
+*.log
