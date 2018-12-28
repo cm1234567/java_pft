@@ -1,0 +1,21 @@
+package ru.stqa.pft.addressbook.tests;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+// Notice, do not import com.mysql.cj.jdbc.*
+// or you will have problems!
+
+public class LoadDriver {
+   public static void main(String[] args) {
+      try {
+         // The newInstance() call is a work around for some
+         // broken Java implementations
+
+         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+      } catch (Exception ex) {
+         ex.printStackTrace();
+         // handle the error
+      }
+   }
+}
