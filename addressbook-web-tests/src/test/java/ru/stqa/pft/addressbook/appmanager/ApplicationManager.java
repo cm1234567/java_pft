@@ -27,6 +27,7 @@ public class ApplicationManager {
    private boolean acceptNextAlert = true;
    private StringBuffer verificationErrors = new StringBuffer();
    private String browser;
+   private DbHelper dbHelper;
 
    public ApplicationManager(String browser)  {
       this.browser = browser;
@@ -36,6 +37,8 @@ public class ApplicationManager {
    public void init() throws IOException {
       String target = System.getProperty("target", "local");
       properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+      dbHelper = new DbHelper();
 
       if (browser.equals(BrowserType.FIREFOX)) {
          driver = new FirefoxDriver();
@@ -98,6 +101,10 @@ public class ApplicationManager {
 
    public ContactHelper contact() {
       return contactHelper;
+   }
+
+   public DbHelper db(){
+      return dbHelper;
    }
 
 }
