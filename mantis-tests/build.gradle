@@ -13,6 +13,7 @@ dependencies {
     compile group: 'commons-net', name: 'commons-net', version: '3.6'
     compile group: 'org.subethamail', name: 'subethasmtp', version: '3.1.7'
     compile group: 'ru.lanwen.verbalregex', name: 'java-verbal-expressions', version: '1.6'
+//    compile group: 'org.apache.james', name: 'james-server-util-java8', version: '3.1.0'
 }
 
 test {
